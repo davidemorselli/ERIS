@@ -114,7 +114,7 @@ compute_polarization_metrics_graph <- function(graph, community_attr = "communit
   
   # Build the community matrix.
   community_attributes = get.vertex.attribute(graph, community_attr)
-  community_names = unique(community_attributes)
+  community_names = unique(community_attributes)[[1]]
   vertices_names = get.vertex.attribute(graph, vnames_attr)
   Mc = t(sapply(community_attributes, function(x) as.numeric(x == community_names)))
   colnames(Mc) = community_names; rownames(Mc) = vertices_names
